@@ -38,3 +38,13 @@ data "aws_subnet_ids" "default" {
 variable "environment" {
     default = "lecture"
 }
+
+
+
+variable "ami_id" {
+    default = "ami-048f6ed62451373d9"
+}
+
+variable "instance_size" {
+    default = "t3.micro"
+}
