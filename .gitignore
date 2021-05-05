@@ -35,4 +35,5 @@ __MACOSX
 # Credentials file
 set_credentials.sh
 
+# Mac specific
 .DS_Store
