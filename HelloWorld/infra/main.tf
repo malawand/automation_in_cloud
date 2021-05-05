@@ -3,8 +3,8 @@ provider "aws" {
 }
 
 resource "aws_instance" "web" {
-  ami           = "ami-048f6ed62451373d9"
-  instance_type = "t3.micro"
+  ami           = "${var.ami_id}"
+  instance_type = "${var.instance_size}"
 
   tags = {
     Name = "HelloWorld"
