@@ -6,6 +6,7 @@ data "aws_vpc" "default"{
     default = true
 }
 
+# Retrieve the default VPC ID fetched above
 data "aws_subnet_ids" "default" {
     vpc_id = data.aws_vpc.default.id
 }
@@ -36,7 +37,7 @@ variable "region" {
 }
 
 variable "application" {
-    default = "mongodb"
+    default = "TODO"
 }
 
 

@@ -13,8 +13,8 @@ resource "aws_route53_record" "www" {
   type    = "A"
 
   alias {
-      name                      = "${aws_lb.mongo.dns_name}"
-      zone_id                   = "${aws_lb.mongo.zone_id}"
+      name                      = "${aws_lb.todo.dns_name}"
+      zone_id                   = "${aws_lb.todo.zone_id}"
       evaluate_target_health    = false
   }
 }

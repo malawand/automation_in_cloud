@@ -3,11 +3,9 @@ resource "aws_launch_configuration" "example" {
     instance_type           = "t2.micro"
     name_prefix             = "${var.environment}-${var.application}"
     security_groups         = [aws_security_group.instance.id]
-    iam_instance_profile    = "${aws_iam_instance_profile.mongo_profile.name}"
+    iam_instance_profile    = "${aws_iam_instance_profile.todo_profile.name}"
     associate_public_ip_address = false
  
-    # Back up the most basic database with empty tables and replace it with the mongorestore script.
-    # Look into how replication will sync data with the newly spawned
     # Try to manually type it in
     user_data       = <<-EOF
     #!/bin/bash -i
