@@ -2,23 +2,7 @@ provider "aws" {
     region = "${var.region}"
 }
 
-resource "aws_security_group" "instance" {
-    name = "${var.environment}-${var.application}"
 
-################ Ingress ################
-    ingress {
-        from_port   = 0
-        to_port     = 0
-        protocol    = "-1"
-        cidr_blocks = ["0.0.0.0/0"]
-    }
-    egress {
-        from_port   = 0
-        to_port     = 0
-        protocol    = "-1"
-        cidr_blocks = ["0.0.0.0/0"]
-    }    
-}
 
 resource "aws_launch_configuration" "example" {
     image_id                  = "ami-048f6ed62451373d9"

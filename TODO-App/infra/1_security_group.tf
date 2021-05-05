@@ -1,3 +1,6 @@
+resource "aws_security_group" "instance" {
+    name = "${var.environment}-${var.application}"
+
 ################ Ingress ################
     ingress {
         from_port   = 0
