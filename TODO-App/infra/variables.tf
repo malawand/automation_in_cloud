@@ -1,3 +1,15 @@
+# Data block requests that Terraform read from a given datasource, aws_vpc
+# and export the result under the given local name, "default"
+# Default is used to refer to the resource from elsewhere in the same TF module, 
+# but does not have significance outside the module
+data "aws_vpc" "default"{
+    default = true
+}
+
+data "aws_subnet_ids" "default" {
+    vpc_id = data.aws_vpc.default.id
+}
+
 variable "server_port" {
     description = "The port the server will use for HTTP requests"
     type        = number
@@ -27,13 +39,7 @@ variable "application" {
     default = "mongodb"
 }
 
-data "aws_vpc" "default"{
-    default = true
-}
 
-data "aws_subnet_ids" "default" {
-    vpc_id = data.aws_vpc.default.id
-}
 
 variable "environment" {
     default = "lecture"
