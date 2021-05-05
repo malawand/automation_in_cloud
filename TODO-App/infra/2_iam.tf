@@ -1,12 +1,12 @@
 ############################# IAM ROLE #############################
-resource "aws_iam_instance_profile" "mongo_profile" {
+resource "aws_iam_instance_profile" "todo_profile" {
   name = "${var.environment}-${var.application}-${var.region}"
-  role = aws_iam_role.mongodb_role.name
+  role = aws_iam_role.todo_role.name
 }
 
-resource "aws_iam_role_policy" "mongodb-s3" {
+resource "aws_iam_role_policy" "todo-s3" {
   name = "${var.environment}-${var.application}-s3-${var.region}"
-  role = aws_iam_role.mongodb_role.id
+  role = aws_iam_role.todo_role.id
 
   # Terraform's "jsonencode" function converts a
   # Terraform expression result to valid JSON syntax.
@@ -24,7 +24,7 @@ resource "aws_iam_role_policy" "mongodb-s3" {
   })
 }
 
-resource "aws_iam_role" "mongodb_role" {
+resource "aws_iam_role" "todo_role" {
   name = "${var.environment}-${var.application}-${var.region}"
 
   assume_role_policy = jsonencode({

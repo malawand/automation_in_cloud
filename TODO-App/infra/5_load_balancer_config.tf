@@ -2,7 +2,7 @@
 #       Load Balancer Configuration
 ###########################################
 # Create the load balancer
-resource "aws_lb" "mongo" {
+resource "aws_lb" "todo" {
     name                = "${var.environment}-${var.application}"
     load_balancer_type  = "application"
     # Data sources allow data to be fetched or computed for use elsewhere in Terraform config

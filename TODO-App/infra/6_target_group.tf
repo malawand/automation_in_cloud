@@ -5,5 +5,5 @@ resource "aws_lb_target_group" "asg" {
     protocol    = "HTTP"
     vpc_id      = data.aws_vpc.default.id
 
-    # We need to reinstall mongodb and have it spin up faster on boot
+    # We need to reinstall todo and have it spin up faster on boot
 }
