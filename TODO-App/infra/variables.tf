@@ -16,20 +16,11 @@ variable "server_port" {
     type        = number
     default     = 3000
 }
-variable "http_port" {
-    description = "The port the server will use for HTTP requests"
-    type        = number
-    default     = 443
-}
-variable "metrics_port" {
-    description = "The port the server will use for HTTP requests"
-    type        = number
-    default     = 9100
-}
-variable "ssh_port" {
-    description = "The port the server will use for HTTP requests"
-    type        = number
-    default     = 22
+
+variable "outside_listener_port" {
+    description = "The port the listener will listen on from requests coming from the internet"
+    type = number
+    default = 80
 }
 
 variable "region" {
@@ -39,8 +30,6 @@ variable "region" {
 variable "application" {
     default = "TODO"
 }
-
-
 
 variable "environment" {
     default = "lecture"
