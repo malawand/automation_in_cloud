@@ -5,8 +5,8 @@ resource "aws_autoscaling_group" "example" {
     target_group_arns = [aws_lb_target_group.target_group.arn]
     health_check_type = "ELB"
 
-    min_size = 3
-    max_size = 3
+    min_size = 1
+    max_size = 1
 
     tag {
         key = "Name"
@@ -17,6 +17,11 @@ resource "aws_autoscaling_group" "example" {
     tag {
         key = "ASG"
         value   = "${var.application}-${var.environment}"
+        propagate_at_launch = true
+    }
+    tag {
+        key = "monitoring"
+        value   = "true"
         propagate_at_launch = true
     }
 }
